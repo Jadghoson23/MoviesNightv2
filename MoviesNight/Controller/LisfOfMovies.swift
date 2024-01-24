@@ -28,6 +28,7 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
   
     var transferData: String = ""
     var TotalPages:Int = 0
+    var test = "Hello World"
     override func viewDidLoad() {
         super.viewDidLoad()
        
