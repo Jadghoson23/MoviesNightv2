@@ -15,6 +15,7 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     var newData: DetailsApi?
     var trailerData: [results] = []
     var trailerID = ""
+    var imdbID : String?
     //MARK: Label List
   
     @IBOutlet weak var loadingLabel: UILabel!
@@ -35,7 +36,12 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
         super.viewDidLoad()
         trailerView.delegate = self
         uploadDataAndFetching()
-        fetchingTrailer()
+        
+        print(imdbID)
+        
+        
+        
+       // fetchingTrailer()
         //MARK: Trailer Display
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
             self.loadingLabel.isHidden = true

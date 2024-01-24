@@ -11,57 +11,53 @@ import SDWebImage
 class SearchList: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
     var userSearch: String?
-    var selectedData: [results] = []
+    var selectedData: [Search] = []
     var specialData = ""
-    var idNB: Int = 0
-    var page: Int = 1
-    var totalPages: Int = 0
+    var id = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var url = URL(string:"https://api.themoviedb.org/3/search/movie?query=\(userSearch!)&include_adult=false&language=en-US&page=\(page)")
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "\(k.nib)", bundle: nil), forCellReuseIdentifier: "\(k.cCell)")
-      
-            auth(with: url!, token: api.t){(listDatapi: ListDataApi) in
-                DispatchQueue.main.async {
-                    self.selectedData = listDatapi.results
-                    self.totalPages = listDatapi.total_pages
-                    self.tableView.reloadData()
-                }
-              
+       
+        
+        
+        ApiSearching{ data in
+            self.selectedData = data
             
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                
+            }
         }
-        
-}
-    
+    }
     //MARK: API
-    
-    func auth(with url: URL, token: String, completion: @escaping (ListDataApi) -> ()) {
-      
-        
-        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/search/movie?query=\(userSearch!)&include_adult=false&language=en-US&page=1")! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
-        
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = api.h
-        
+    func ApiSearching(completion: @escaping([Search]) -> ()){
+       
+        let link = "https://www.omdbapi.com/?s=\(userSearch!)&page=1&apikey=\(k.apikey)"
+        print(link)
+        let url = URL(string: link)
+        guard url != nil else{
+            print("error in api")
+            return
+        }
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print(error as Any)
-            } else {
-                guard let data = data else { return }
-                do {
-                    let result = try JSONDecoder().decode(ListDataApi.self, from: data)
-                    completion(result.self)
-                } catch let error {
-                    print(error)
+        let dataTask = session.dataTask(with: url!){ data, response, error in
+
+            if error == nil , data != nil{
+                let decoder = JSONDecoder()
+              
+                do{
+                    let result = try decoder.decode(SearchListData.self, from: data!)
+                    completion(result.Search)
+                    
+                }catch{
+                    print("error to decoder")
                 }
             }
-        })
+        }
         dataTask.resume()
     }
     //MARK: TableView Methods
@@ -71,48 +67,29 @@ class SearchList: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(k.cCell)", for: indexPath) as! TableViewCell
-        let imageURL = selectedData[indexPath.row].poster_path
-        let image = "https://image.tmdb.org/t/p/w500\(imageURL)"
-        cell.titleCell.text = selectedData[indexPath.row].title
-        cell.relaseDate.text = selectedData[indexPath.row].release_date
-        cell.imageOfMovies.download(from: image)
-        
+        let imageURL = selectedData[indexPath.row].Poster
+        cell.titleCell.text = selectedData[indexPath.row].Title
+        cell.relaseDate.text = selectedData[indexPath.row].Year
+        cell.imageOfMovies.download(from: imageURL)
+       
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        specialData = selectedData[indexPath.row].title
-        idNB = selectedData[indexPath.row].id
-        print(idNB)
+        specialData = selectedData[indexPath.row].Title
+        id = selectedData[indexPath.row].imdbID
+        print(selectedData[indexPath.row].imdbID)
         performSegue(withIdentifier: "\(k.gtd)", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "\(k.gtd)"{
             if let destinationVC = segue.destination as? DetailsMovie{
                 destinationVC.selectedDetails = specialData
-                destinationVC.nbID = idNB
+                destinationVC.imdbID = id
             }
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
-    }
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        var url = URL(string:"https://api.themoviedb.org/3/search/movie?query=\(userSearch!)&include_adult=false&language=en-US&page=\(page)")
-
-        if page != totalPages{
-            if indexPath.row == selectedData.count - 1{
-                page = (page + 1)
-                print(totalPages)
-                auth(with: url!, token: api.t){(listDatapi: ListDataApi) in
-                    DispatchQueue.main.async {
-                        self.selectedData.append(contentsOf: listDatapi.results)
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-        }else{
-            return
-        }
     }
 }
 
