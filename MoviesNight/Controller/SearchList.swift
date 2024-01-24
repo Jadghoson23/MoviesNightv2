@@ -16,7 +16,6 @@ class SearchList: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var idNB: Int = 0
     var page: Int = 1
     var totalPages: Int = 0
-    var test = "Hello World"
     override func viewDidLoad() {
         super.viewDidLoad()
         
