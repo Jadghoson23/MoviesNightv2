@@ -17,8 +17,7 @@ class WelcomeAppVC:UIViewController{
     
     @IBOutlet weak var movieAnimation: UILabel!
     
-    var testing = 1023
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
         c.designBottom(bottom: loginButton)
         c.designBottom(bottom: signupButton)
