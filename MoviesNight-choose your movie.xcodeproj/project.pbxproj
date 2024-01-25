@@ -33,6 +33,7 @@
 		93A19CAC2B39CE250009A123 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A19CAB2B39CE250009A123 /* Constant.swift */; };
 		93A19CAF2B39D7F30009A123 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 93A19CAE2B39D7F30009A123 /* IQKeyboardManagerSwift */; };
 		93A67E302B4A41000019895E /* TypesMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A67E2F2B4A41000019895E /* TypesMovies.swift */; };
+		93B004412B62B41A00DF53ED /* ConvertAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B004402B62B41A00DF53ED /* ConvertAPI.swift */; };
 		93B6E4CD2B5D9B5A00983A9E /* YoutubePlayer-in-WKWebView in Frameworks */ = {isa = PBXBuildFile; productRef = 93B6E4CC2B5D9B5A00983A9E /* YoutubePlayer-in-WKWebView */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		93A19CA92B39AB160009A123 /* WelcomeAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeAppVC.swift; sourceTree = "<group>"; };
 		93A19CAB2B39CE250009A123 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		93A67E2F2B4A41000019895E /* TypesMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesMovies.swift; sourceTree = "<group>"; };
+		93B004402B62B41A00DF53ED /* ConvertAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				93A19CAB2B39CE250009A123 /* Constant.swift */,
 				939B7EC32B48C70800D6586B /* ApiImages.swift */,
 				933C0A7E2B429E9C007178DF /* ListDataApi.swift */,
+				93B004402B62B41A00DF53ED /* ConvertAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				93A19CAC2B39CE250009A123 /* Constant.swift in Sources */,
 				935E816D2B5889070007F6BB /* TabBarVC.swift in Sources */,
 				939B7EC42B48C70800D6586B /* ApiImages.swift in Sources */,
+				93B004412B62B41A00DF53ED /* ConvertAPI.swift in Sources */,
 				939CB52C2B40FF6F002DB3E0 /* LisfOfMovies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

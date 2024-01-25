@@ -16,8 +16,9 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     var trailerData: [results] = []
     var trailerID = ""
     var imdbID : String?
+    var convertData: [movie_results] = []
     //MARK: Label List
-  
+    
     @IBOutlet weak var loadingLabel: UILabel!
     
     @IBOutlet weak var trailerView: WKYTPlayerView!
@@ -36,12 +37,14 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
         super.viewDidLoad()
         trailerView.delegate = self
         uploadDataAndFetching()
+        if imdbID != nil {
+            convertAPI()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+            self.fetchingTrailer()
+        }
         
-        print(imdbID)
-        
-        
-        
-       // fetchingTrailer()
+       
         //MARK: Trailer Display
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
             self.loadingLabel.isHidden = true
@@ -51,15 +54,11 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     }
     func fetchingTrailer(){
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(nbID)/videos?language=en-US")
+     
         auth(with: url!, token: api.t){(apiTrailer: [results]) in
             DispatchQueue.main.async {
-                if apiTrailer[0].key == nil{
-                   print("its nil")
-                    return
-                }else{
-                    self.trailerID = apiTrailer[0].key
-                }
-                print(self.trailerID)
+                self.trailerID = apiTrailer[0].key
+                print(apiTrailer.count)
             }
         }
     }
@@ -120,7 +119,7 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     func auth(with url: URL, token: String, completion: @escaping ([results]) -> ()) {
         
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/movie/\(nbID))/videos?language=en-US")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/movie/\(nbID)/videos?language=en-US")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         
@@ -143,5 +142,45 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
         })
         dataTask.resume()
     }
+    //MARK: - Convert API (IMDB to TMDB)
     
+    func convertAPI(){
+        let url = URL(string: "https://api.themoviedb.org/3/find/\(imdbID!))?external_source=imdb_id")
+        authID(with: url!, token: api.t){(convertAPI: [movie_results]) in
+            
+            DispatchQueue.main.async {
+                self.convertData = convertAPI
+                guard (self.convertData.count == 1) else {return}
+                    self.nbID = self.convertData[0].id
+            }
+        }
+        
+        func authID(with url: URL, token: String, completion: @escaping ([movie_results]) -> ()) {
+            
+            
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/find/\(imdbID!)?external_source=imdb_id")! as URL,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
+            
+            request.httpMethod = "GET"
+            request.allHTTPHeaderFields = api.h
+            
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                if (error != nil) {
+                    print(error as Any)
+                } else {
+                    guard let data = data else { return }
+                    do {
+                        let result = try JSONDecoder().decode(ConvertAPI.self, from: data)
+                        completion(result.movie_results.self)
+                      
+                    } catch let error {
+                        print(error)
+                    }
+                }
+            })
+            dataTask.resume()
+        }
+    }
 }
