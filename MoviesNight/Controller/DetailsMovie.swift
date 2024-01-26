@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 import SDWebImage
 import YoutubePlayer_in_WKWebView
+import FirebaseFirestore
 class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
+    
     var selectedDetails = ""
     var nbID: Int = 0
     var newData: DetailsApi?
@@ -33,6 +35,8 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var awardLabel: UILabel!
+    let database = Firestore.firestore()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         trailerView.delegate = self
@@ -43,14 +47,19 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
             self.fetchingTrailer()
         }
-        
-       
         //MARK: Trailer Display
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
             self.loadingLabel.isHidden = true
             self.trailerView.load(withVideoId: "\(self.trailerID)")
         }
         
+        writedata(text: (imdbID!))
+        
+        
+    }
+    func writedata(text: String){
+        let docRef = database.document("ios/test")
+        docRef.setData(["text": text])
     }
     func fetchingTrailer(){
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(nbID)/videos?language=en-US")
