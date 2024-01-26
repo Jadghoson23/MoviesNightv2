@@ -57,6 +57,7 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
      
         auth(with: url!, token: api.t){(apiTrailer: [results]) in
             DispatchQueue.main.async {
+                guard apiTrailer.count >= 1 else {return}
                 self.trailerID = apiTrailer[0].key
                 print(apiTrailer.count)
             }

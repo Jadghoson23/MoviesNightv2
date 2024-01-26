@@ -14,6 +14,8 @@ class SearchList: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var selectedData: [Search] = []
     var specialData = ""
     var id = ""
+    var nbPages: Int = 1
+    var totalPages:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +38,7 @@ class SearchList: UIViewController, UITableViewDelegate, UITableViewDataSource{
     //MARK: API
     func ApiSearching(completion: @escaping([Search]) -> ()){
        
-        let link = "https://www.omdbapi.com/?s=\(userSearch!)&page=1&apikey=\(k.apikey)"
+        let link = "https://www.omdbapi.com/?s=\(userSearch!)&page=\(nbPages)&apikey=\(k.apikey)"
         print(link)
         let url = URL(string: link)
         guard url != nil else{
@@ -90,6 +92,26 @@ class SearchList: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+    //MARK: Pagination Search List
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if nbPages != totalPages{
+            if indexPath.row == selectedData.count - 1{
+                nbPages = (nbPages + 1)
+                if nbPages != totalPages{
+                ApiSearching{ data in
+                    self.selectedData = data
+                    DispatchQueue.main.async {
+                        self.selectedData.append(contentsOf: data)
+                        self.tableView.reloadData()
+                    }
+            }
+                }
+            }
+        }else{
+            return
+        }
+   
     }
 }
 
