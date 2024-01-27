@@ -21,7 +21,7 @@ class WishList:  UIViewController{
     var data : [WishListAPI] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("RUN")
+     
         tableView.dataSource = self
         tableView.delegate = self
        

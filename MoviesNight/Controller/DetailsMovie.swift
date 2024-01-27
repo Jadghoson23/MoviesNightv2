@@ -20,7 +20,9 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     var trailerID = ""
     var imdbID : String?
     var convertData: [movie_results] = []
+    var wish: Bool = false
     //MARK: Label List
+   
     
     @IBOutlet weak var loadingLabel: UILabel!
     
@@ -36,12 +38,10 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var awardLabel: UILabel!
-    
-    
-   
-    var ns: [test] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         trailerView.delegate = self
         uploadDataAndFetching()
         if imdbID != nil {
@@ -55,9 +55,16 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
             self.loadingLabel.isHidden = true
             self.trailerView.load(withVideoId: "\(self.trailerID)")
         }
-        // database.collection("database").document("\(docRef!)").setData(["\(selectedDetails)":"\(nbID)"], merge: true)
+       
     }
 
+    @IBAction func wishButton(_ sender: UIBarButtonItem) {
+        let docRef  = Auth.auth().currentUser?.email!
+        let database = Firestore.firestore()
+         database.collection("database").document("\(docRef!)").setData(["\(selectedDetails)":"\(nbID)"], merge: true)
+
+    }
+  
     func fetchingTrailer(){
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(nbID)/videos?language=en-US")
      
