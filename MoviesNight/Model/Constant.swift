@@ -45,8 +45,9 @@ struct api {
     ]
     static let t = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzM3OWRiNWE4NjlhMzI2MjQyM2UxOWQ4ZGE0NmUyYiIsInN1YiI6IjY1ODQ3Yzc0ZDU1Njk3MTc0NTUyNzg1MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.24tb1PdMV0UV59bajVFOcmI8wbes2OdE_ZKf59sdL1Q"
 }
-struct fb{
-    static let data: [Any] = [
-        "key1","key2"
-    ]
+struct tester{
+    let data : [test]
+}
+struct test {
+    let key : Int
 }

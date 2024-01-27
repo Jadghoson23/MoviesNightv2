@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 import YoutubePlayer_in_WKWebView
 import FirebaseFirestore
+import Firebase
 class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     
     var selectedDetails = ""
@@ -36,7 +37,9 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var awardLabel: UILabel!
     let database = Firestore.firestore()
+    var firebase:[String:Any]?
    
+    var ns: [test] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         trailerView.delegate = self
@@ -52,15 +55,26 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
             self.loadingLabel.isHidden = true
             self.trailerView.load(withVideoId: "\(self.trailerID)")
         }
+        let docRef  = Auth.auth().currentUser?.email!
+       // database.collection("database").document("\(docRef!)").setData(["\(selectedDetails)":"\(nbID)"], merge: true)
+        database.collection("database").document("\(docRef!)").getDocument {(document, error) in
+            if error == nil {
+                if document != nil && document!.exists {
+                    self.firebase = document!.data()
+                    
+                    let na = Array(self.firebase!.values)
+                    print(na[0])
+                }
+            }
+            
+        }
+
         
-        writedata(text: (imdbID!))
-        
-        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 20 ){
+//            print("test:\(self.test)")
+//        }
     }
-    func writedata(text: String){
-        let docRef = database.document("ios/test")
-        docRef.setData(["text": text])
-    }
+
     func fetchingTrailer(){
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(nbID)/videos?language=en-US")
      
