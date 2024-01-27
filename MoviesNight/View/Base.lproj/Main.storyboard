@@ -658,7 +658,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uH-Ep-7YS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2648" y="846"/>
+            <point key="canvasLocation" x="4431" y="741"/>
         </scene>
         <!--Settings-->
         <scene sceneID="h8c-sy-uHr">
@@ -813,11 +813,53 @@
                         <segue destination="zWC-yN-XZL" kind="relationship" relationship="viewControllers" id="ebH-S7-N9L"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Ce6-F3-oaB"/>
                         <segue destination="PWM-t0-aW2" kind="relationship" relationship="viewControllers" id="WOn-qV-kiG"/>
+                        <segue destination="Ifi-TW-3dC" kind="relationship" relationship="viewControllers" id="C8x-Je-w5Z"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IP2-VO-3l0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2648.0916030534349" y="-27.464788732394368"/>
+        </scene>
+        <!--Wishlist-->
+        <scene sceneID="nbg-ox-D6a">
+            <objects>
+                <viewController id="Ifi-TW-3dC" customClass="WishList" customModule="MoviesNight_choose_your_movie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EtR-C0-S22">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IgM-Td-P8w">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="QTE-Le-f5O">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QTE-Le-f5O" id="1Ej-Tu-bVl">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b9y-Ii-3YD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IgM-Td-P8w" firstAttribute="top" secondItem="b9y-Ii-3YD" secondAttribute="top" id="7yy-q1-Be4"/>
+                            <constraint firstItem="IgM-Td-P8w" firstAttribute="trailing" secondItem="b9y-Ii-3YD" secondAttribute="trailing" id="KFJ-q2-49K"/>
+                            <constraint firstItem="IgM-Td-P8w" firstAttribute="bottom" secondItem="b9y-Ii-3YD" secondAttribute="bottom" id="OZV-H7-Fpj"/>
+                            <constraint firstItem="IgM-Td-P8w" firstAttribute="leading" secondItem="b9y-Ii-3YD" secondAttribute="leading" id="brh-Mw-XxE"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Wishlist" image="star" catalog="system" id="OB7-z0-WWf"/>
+                    <connections>
+                        <outlet property="tableView" destination="IgM-Td-P8w" id="sOY-5n-o3x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XF1-at-bhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2646.5648854961833" y="740.84507042253529"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -828,6 +870,7 @@
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="movieclapper" catalog="system" width="128" height="113"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

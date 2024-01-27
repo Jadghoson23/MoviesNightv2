@@ -36,8 +36,8 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var awardLabel: UILabel!
-    let database = Firestore.firestore()
-    var firebase:[String:Any]?
+    
+    
    
     var ns: [test] = []
     override func viewDidLoad() {
@@ -55,24 +55,7 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
             self.loadingLabel.isHidden = true
             self.trailerView.load(withVideoId: "\(self.trailerID)")
         }
-        let docRef  = Auth.auth().currentUser?.email!
-       // database.collection("database").document("\(docRef!)").setData(["\(selectedDetails)":"\(nbID)"], merge: true)
-        database.collection("database").document("\(docRef!)").getDocument {(document, error) in
-            if error == nil {
-                if document != nil && document!.exists {
-                    self.firebase = document!.data()
-                    
-                    let na = Array(self.firebase!.values)
-                    print(na[0])
-                }
-            }
-            
-        }
-
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 20 ){
-//            print("test:\(self.test)")
-//        }
+        // database.collection("database").document("\(docRef!)").setData(["\(selectedDetails)":"\(nbID)"], merge: true)
     }
 
     func fetchingTrailer(){
