@@ -12,6 +12,7 @@ import IQKeyboardManagerSwift
 class SettingVC: UIViewController{
     
 
+    @IBOutlet var settingView: UIView!
     @IBOutlet weak var warringLabel: UILabel!
     
     @IBOutlet weak var newPasswordTF: UITextField!
@@ -27,6 +28,13 @@ class SettingVC: UIViewController{
     var userAccount: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Auth.auth().currentUser?.email == nil{
+            print("nil")
+            alertMessage()
+            return
+        }
+        
+       
         warringLabel.isHidden = true
         deleteAccount.tintColor = UIColor.red
         changePassword.tintColor = UIColor.white
@@ -35,10 +43,18 @@ class SettingVC: UIViewController{
         c.designBottom(bottom: deleteAccount)
         userAccount = (Auth.auth().currentUser?.email)!
         emailLabel.text = ("  Account:\(userAccount)")
+        
     }
     
     
-        
+     func alertMessage(){
+         let alert = UIAlertController(title: "Alert", message: "You must to login your account first", preferredStyle: .alert)
+         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+             print("Hello World")
+             _ = self.navigationController?.popViewController(animated: true)
+         }))
+         self.present(alert, animated: true, completion: nil)
+     }
     
   
     @IBAction func changePasswordButton(_ sender: UIButton) {

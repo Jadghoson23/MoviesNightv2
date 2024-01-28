@@ -160,6 +160,7 @@ extension ListOfMovies: UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        listTV.deselectRow(at: indexPath, animated: true)
         transferData = database[indexPath.row].title
         idNB = database[indexPath.row].id
         performSegue(withIdentifier: "\(k.sd)", sender: self)
@@ -179,6 +180,7 @@ extension ListOfMovies: UITableViewDataSource, UITableViewDelegate{
         let indexPath = IndexPath(row: 0, section: 0 )
         listTV.scrollToRow(at: indexPath, at: .top, animated: true)
     }
+
     //MARK: - Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if nbPages != TotalPages{

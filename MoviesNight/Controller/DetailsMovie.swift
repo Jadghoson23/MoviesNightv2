@@ -44,16 +44,27 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         if wish == true{
             wishButton = UIImage(systemName: "star.fill")
 
         }else{
             wishButton = UIImage(systemName: "star")
         }
-            var button = UIBarButtonItem(image: wishButton, style: .plain, target: self, action: #selector(action))
+        let button = UIBarButtonItem(image: wishButton, style: .plain, target: self, action: #selector(action))
             navigationItem.rightBarButtonItem = button
             
+        
+        if Auth.auth().currentUser?.email == nil{
+            button.isEnabled = false
+        }
+        
+        
+        
+        
+        
+        
+        
         trailerView.delegate = self
         uploadDataAndFetching()
         if imdbID != nil {

@@ -280,7 +280,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xC0-W9-61O">
                                 <rect key="frame" x="51" y="541.66666666666663" width="290" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="HFd-8G-FvQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="P4I-w9-jrj"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
@@ -294,7 +294,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcI-UN-qVo">
                                 <rect key="frame" x="51" y="601.66666666666663" width="290" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="tD3-f0-6Vm"/>
+                                    <constraint firstAttribute="height" constant="40" id="9PV-Hs-YNJ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Create Account">
@@ -306,28 +306,38 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MoviesNight-choose your movie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRI-K8-Asu">
-                                <rect key="frame" x="68" y="128" width="257" height="315"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="315" id="jee-Dc-upq"/>
-                                </constraints>
+                                <rect key="frame" x="68" y="203" width="257" height="52.666666666666657"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Nf-M6-YDE">
+                                <rect key="frame" x="168" y="661.66666666666663" width="57" height="51.333333333333371"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Skip"/>
+                                <connections>
+                                    <segue destination="H3G-xO-zb4" kind="show" id="Iid-tM-aYw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eIG-ix-ERS"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
-                            <constraint firstItem="NRI-K8-Asu" firstAttribute="leading" secondItem="eIG-ix-ERS" secondAttribute="leading" constant="68" id="8K4-OT-CCx"/>
-                            <constraint firstItem="eIG-ix-ERS" firstAttribute="trailing" secondItem="xC0-W9-61O" secondAttribute="trailing" constant="52" id="ECF-rK-dUA"/>
-                            <constraint firstItem="xC0-W9-61O" firstAttribute="leading" secondItem="eIG-ix-ERS" secondAttribute="leading" constant="51" id="FiE-67-VGZ"/>
-                            <constraint firstItem="xC0-W9-61O" firstAttribute="top" secondItem="NRI-K8-Asu" secondAttribute="bottom" constant="98.670000000000002" id="UCv-pe-qtA"/>
-                            <constraint firstItem="NRI-K8-Asu" firstAttribute="top" secondItem="eIG-ix-ERS" secondAttribute="top" constant="25" id="aNK-cU-a2U"/>
-                            <constraint firstItem="eIG-ix-ERS" firstAttribute="bottom" secondItem="hcI-UN-qVo" secondAttribute="bottom" constant="176.33000000000001" id="cjA-fy-HH8"/>
-                            <constraint firstItem="eIG-ix-ERS" firstAttribute="trailing" secondItem="hcI-UN-qVo" secondAttribute="trailing" constant="52" id="eBU-QH-0Um"/>
-                            <constraint firstItem="eIG-ix-ERS" firstAttribute="trailing" secondItem="NRI-K8-Asu" secondAttribute="trailing" constant="68" id="qyn-i0-8Sg"/>
-                            <constraint firstItem="hcI-UN-qVo" firstAttribute="leading" secondItem="eIG-ix-ERS" secondAttribute="leading" constant="51" id="yDw-bo-33J"/>
-                            <constraint firstItem="hcI-UN-qVo" firstAttribute="top" secondItem="xC0-W9-61O" secondAttribute="bottom" constant="20" id="yIa-ah-4mY"/>
+                            <constraint firstItem="5Nf-M6-YDE" firstAttribute="top" secondItem="hcI-UN-qVo" secondAttribute="bottom" constant="20" id="9MU-5I-Gc0"/>
+                            <constraint firstItem="hcI-UN-qVo" firstAttribute="top" secondItem="xC0-W9-61O" secondAttribute="bottom" constant="20" id="DTc-v9-wDm"/>
+                            <constraint firstItem="NRI-K8-Asu" firstAttribute="leading" secondItem="eIG-ix-ERS" secondAttribute="leading" constant="68" id="DrD-cF-lTp"/>
+                            <constraint firstItem="eIG-ix-ERS" firstAttribute="trailing" secondItem="hcI-UN-qVo" secondAttribute="trailing" constant="52" id="Qg2-dB-Zh4"/>
+                            <constraint firstItem="5Nf-M6-YDE" firstAttribute="leading" secondItem="eIG-ix-ERS" secondAttribute="leading" constant="168" id="QxI-VB-FR2"/>
+                            <constraint firstItem="eIG-ix-ERS" firstAttribute="bottom" secondItem="5Nf-M6-YDE" secondAttribute="bottom" constant="105" id="RpO-Ll-pny"/>
+                            <constraint firstItem="xC0-W9-61O" firstAttribute="top" secondItem="NRI-K8-Asu" secondAttribute="bottom" constant="286" id="TxM-Ij-GMo"/>
+                            <constraint firstItem="eIG-ix-ERS" firstAttribute="trailing" secondItem="5Nf-M6-YDE" secondAttribute="trailing" constant="168" id="a87-k7-dyE"/>
+                            <constraint firstItem="eIG-ix-ERS" firstAttribute="trailing" secondItem="NRI-K8-Asu" secondAttribute="trailing" constant="68" id="eJf-Hi-i9f"/>
+                            <constraint firstItem="hcI-UN-qVo" firstAttribute="top" secondItem="xC0-W9-61O" secondAttribute="bottom" constant="20" id="mIB-8c-olv"/>
+                            <constraint firstItem="eIG-ix-ERS" firstAttribute="trailing" secondItem="xC0-W9-61O" secondAttribute="trailing" constant="52" id="pT6-j2-AEE"/>
+                            <constraint firstItem="hcI-UN-qVo" firstAttribute="leading" secondItem="eIG-ix-ERS" secondAttribute="leading" constant="51" id="uhQ-9P-Fbc"/>
+                            <constraint firstItem="xC0-W9-61O" firstAttribute="leading" secondItem="eIG-ix-ERS" secondAttribute="leading" constant="51" id="xYq-81-ELS"/>
+                            <constraint firstItem="NRI-K8-Asu" firstAttribute="top" secondItem="eIG-ix-ERS" secondAttribute="top" constant="100" id="xbj-Pm-D04"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wvi-uj-xbB"/>
@@ -349,7 +359,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Jad.ghoson@hotmail.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZlZ-qh-NNK">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1029384756@2.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZlZ-qh-NNK">
                                 <rect key="frame" x="82" y="350" width="229" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -768,6 +778,7 @@
                         <outlet property="deleteAccount" destination="vTa-3I-cg2" id="SAL-Jc-V2x"/>
                         <outlet property="emailLabel" destination="xrz-0i-xQK" id="7cZ-e7-uK1"/>
                         <outlet property="newPasswordTF" destination="VXN-ub-gxN" id="KIY-1a-ecd"/>
+                        <outlet property="settingView" destination="GgH-Dg-Ddb" id="wU3-28-6Zd"/>
                         <outlet property="warringLabel" destination="a51-ej-3Q4" id="HRu-Cv-AFr"/>
                     </connections>
                 </viewController>
@@ -793,6 +804,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="signOut" destination="658-II-HWY" id="OcQ-Sx-pse"/>
                         <segue destination="zWC-yN-XZL" kind="relationship" relationship="viewControllers" id="ebH-S7-N9L"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Ce6-F3-oaB"/>
                         <segue destination="PWM-t0-aW2" kind="relationship" relationship="viewControllers" id="WOn-qV-kiG"/>

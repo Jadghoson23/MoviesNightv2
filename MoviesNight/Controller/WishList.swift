@@ -25,7 +25,7 @@ class WishList:  UIViewController{
     var idOfMovie = 0
     var movieName = ""
     var spinner = false
-  
+    var settingAler = SettingVC()
     private  var refhrea: UIRefreshControl{
              let ref = UIRefreshControl()
              ref.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
@@ -34,6 +34,10 @@ class WishList:  UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Auth.auth().currentUser?.email == nil{
+            alertMessage()
+            return
+        }
         tableView.isHidden = true
         spinnerLoading.startAnimating()
         tableView.addSubview(refhrea)
@@ -42,6 +46,15 @@ class WishList:  UIViewController{
        loadingAccount()
         tableView.register(UINib(nibName: "\(k.nib)", bundle: nil), forCellReuseIdentifier: "\(k.cCell)")
         
+    }
+    //MARK: - Alert systeme
+    func alertMessage(){
+        let alert = UIAlertController(title: "Alert", message: "You must to login your account first", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            print("Hello World")
+            _ = self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
  //MARK: Pull Refresh
@@ -139,6 +152,7 @@ extension WishList : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         movieName = data[indexPath.row].imdb_id
         idOfMovie = data[indexPath.row].id
+        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "\(k.swd)", sender: self)
     }
     

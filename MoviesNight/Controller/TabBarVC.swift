@@ -9,8 +9,14 @@ import Foundation
 import UIKit
 import Firebase
 class TabBarVC:UITabBarController{
-    
-    
+    @IBOutlet weak var signOut: UIBarButtonItem!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if Auth.auth().currentUser?.email == nil{
+            signOut.isHidden = true
+        }
+    }
+   
     
     
     
