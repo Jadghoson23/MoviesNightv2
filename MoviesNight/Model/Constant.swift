@@ -17,6 +17,7 @@ struct k {
     static let cCell = "MoviesCell"
     static let gtd = "goToDetails"
     static let nib = "TableViewCell"
+    static let swd = "wishToDetails"
 }
 struct c{
     static func designTF(textField: UITextField){

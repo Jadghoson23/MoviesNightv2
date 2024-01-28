@@ -24,13 +24,19 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
     var database : [results] = []
     var nbPages = 1
     var idNB: Int = 0
+    var refresh: Bool = false
     let  url = URL(string: "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1)")!
   
     var transferData: String = ""
     var TotalPages:Int = 0
+  private  var refhrea: UIRefreshControl{
+           let ref = UIRefreshControl()
+           ref.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+           return ref
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         c.customiseBottom(bottom: topRattingButton)
         c.customiseBottom(bottom: popularButton)
         c.customiseBottom(bottom: nowPlaying)
@@ -39,9 +45,24 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
         listTV.dataSource = self
         listTV.delegate = self
         listTV.register(UINib(nibName: "\(k.nib)", bundle: nil), forCellReuseIdentifier: "\(k.cCell)")
-       
+        
+
         fetchingData()
+        listTV.addSubview(refhrea)
+       
+       
+    }
+    //MARK: - Pull Refresh
+    @objc func handleRefresh(_ control: UIRefreshControl){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            control.endRefreshing()
+            self.listTV.reloadData()
         }
+      
+    }
+    
+    
+    
     //MARK: - Button Options
     @IBAction func topRated(_ sender: UIButton) {
         mode = "top_rated"
@@ -83,7 +104,7 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
         soonPlaying.tintColor = UIColor.white
         fetchingData()
     }
-    //MARK: - Fetching Data
+    //MARK: - Calling API (TMDB)
     func fetchingData(){
         auth(with: url, token: api.t){(listDatapi: ListDataApi) in
             DispatchQueue.main.async {
@@ -94,7 +115,7 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
         }
     }
     
-    //MARK: - Api Fetching
+    //MARK: - Api Fetching (TMDB)
     func auth(with url: URL, token: String, completion: @escaping (ListDataApi) -> ()) {
       
         
@@ -124,6 +145,7 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
 }
 //MARK: - Table View Delegates Methods
 extension ListOfMovies: UITableViewDataSource, UITableViewDelegate{
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.database.count
     }

@@ -76,6 +76,7 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
             }
         }
     }
+    //MARK: - Calling API (OMD)
     func uploadDataAndFetching(){
         ApiFectchingData{ data in
             self.newData = data
@@ -156,7 +157,7 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
         })
         dataTask.resume()
     }
-    //MARK: - Convert API (IMDB to TMDB)
+    //MARK: - Convert API (OMD to TMDB)
     
     func convertAPI(){
         let url = URL(string: "https://api.themoviedb.org/3/find/\(imdbID!))?external_source=imdb_id")

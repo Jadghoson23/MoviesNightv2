@@ -19,9 +19,21 @@ class WishList:  UIViewController{
     var apidata = ""
     var whishdata : WishListAPI?
     var data : [WishListAPI] = []
+    var idOfMovie = 0
+    var movieName = ""
+    private  var refhrea: UIRefreshControl{
+             let ref = UIRefreshControl()
+             ref.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+             return ref
+      }
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        tableView.addSubview(refhrea)
         tableView.dataSource = self
         tableView.delegate = self
        
@@ -30,7 +42,14 @@ class WishList:  UIViewController{
    
     }
     
-    
+ //MARK: Pull Refresh
+    @objc func handleRefresh(_ control: UIRefreshControl){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            control.endRefreshing()
+            self.tableView.reloadData()
+        }
+ //MARK: - Download the Data by Database
+    }
     func loadingAccount(){
         let docRef  = Auth.auth().currentUser?.email!
      
@@ -47,7 +66,7 @@ class WishList:  UIViewController{
             
         }
     }
-  //MARK: - API WishList
+  //MARK: - API Call With Firebase Database
     func wishListData(){
         for v in self.test {
             apidata = v as! String
@@ -61,11 +80,10 @@ class WishList:  UIViewController{
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            print(self.data)
             self.tableView.reloadData()
         }
     }
-  
+  //MARK: - Api Fetching Data
     func auth(with url: URL, token: String, completion: @escaping (WishListAPI) -> ()) {
   
         
@@ -93,6 +111,7 @@ class WishList:  UIViewController{
         dataTask.resume()
     }
  }
+//MARK: - TableView Methods
 extension WishList : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
@@ -110,7 +129,17 @@ extension WishList : UITableViewDelegate, UITableViewDataSource{
         return 150
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(data[indexPath.row].id)
+        movieName = data[indexPath.row].original_title
+        idOfMovie = data[indexPath.row].id
+        performSegue(withIdentifier: "\(k.swd)", sender: self)
+    }
+    
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "\(k.swd)"{
+            if let destinationVC = segue.destination as? DetailsMovie{
+                destinationVC.selectedDetails = movieName
+                destinationVC.nbID = idOfMovie
+            }
+        }
     }
 }
-

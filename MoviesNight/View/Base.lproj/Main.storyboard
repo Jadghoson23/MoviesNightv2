@@ -855,6 +855,7 @@
                     <tabBarItem key="tabBarItem" title="Wishlist" image="star" catalog="system" id="OB7-z0-WWf"/>
                     <connections>
                         <outlet property="tableView" destination="IgM-Td-P8w" id="sOY-5n-o3x"/>
+                        <segue destination="Ixj-s0-GOE" kind="show" identifier="wishToDetails" id="6YW-Ia-rmq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XF1-at-bhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -864,7 +865,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dV9-4w-YB0"/>
-        <segue reference="OtC-hr-HjQ"/>
+        <segue reference="6YW-Ia-rmq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="123"/>

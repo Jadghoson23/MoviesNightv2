@@ -79,7 +79,6 @@ class SearchList: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         specialData = selectedData[indexPath.row].Title
         id = selectedData[indexPath.row].imdbID
-        print(selectedData[indexPath.row].imdbID)
         performSegue(withIdentifier: "\(k.gtd)", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
