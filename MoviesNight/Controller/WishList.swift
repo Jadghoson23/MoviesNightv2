@@ -12,6 +12,9 @@ import FirebaseFirestore
 import SDWebImage
 class WishList:  UIViewController{
    
+    @IBOutlet weak var spinnerLoading: UIActivityIndicatorView!
+    @IBOutlet var viewScreen: UIView!
+    
     @IBOutlet weak var tableView: UITableView!
     let database = Firestore.firestore()
     var firebase:[String:Any]?
@@ -21,22 +24,25 @@ class WishList:  UIViewController{
     var data : [WishListAPI] = []
     var idOfMovie = 0
     var movieName = ""
+    var spinner = false
     private  var refhrea: UIRefreshControl{
              let ref = UIRefreshControl()
              ref.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
              return ref
       }
     
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.isHidden = true
+        spinnerLoading.startAnimating()
+        
+         
+        
+        
         tableView.addSubview(refhrea)
         tableView.dataSource = self
         tableView.delegate = self
-       
+  
        loadingAccount()
         tableView.register(UINib(nibName: "\(k.nib)", bundle: nil), forCellReuseIdentifier: "\(k.cCell)")
    
@@ -74,12 +80,15 @@ class WishList:  UIViewController{
        
             auth(with: url, token: api.t){(wishResult: WishListAPI) in
                 DispatchQueue.main.async {
+                    
                     self.whishdata = wishResult
                     self.data.append(contentsOf: [wishResult])
                 }
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.spinnerLoading.stopAnimating()
+            self.tableView.isHidden = false
             self.tableView.reloadData()
         }
     }

@@ -828,6 +828,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="IRz-lC-VEL">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IgM-Td-P8w">
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -854,7 +858,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Wishlist" image="star" catalog="system" id="OB7-z0-WWf"/>
                     <connections>
+                        <outlet property="spinnerLoading" destination="IRz-lC-VEL" id="uoB-Yk-Cxq"/>
                         <outlet property="tableView" destination="IgM-Td-P8w" id="sOY-5n-o3x"/>
+                        <outlet property="viewScreen" destination="EtR-C0-S22" id="nje-54-E9B"/>
                         <segue destination="Ixj-s0-GOE" kind="show" identifier="wishToDetails" id="6YW-Ia-rmq"/>
                     </connections>
                 </viewController>
