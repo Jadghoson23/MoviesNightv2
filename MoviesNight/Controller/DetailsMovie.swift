@@ -21,6 +21,8 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     var imdbID : String?
     var convertData: [movie_results] = []
     var wish: Bool = false
+    var wishButton = UIImage(systemName: "star")
+    var wishCheckButton = ""
     //MARK: Label List
    
     
@@ -41,7 +43,16 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if wish == true{
+            wishButton = UIImage(systemName: "star.fill")
 
+        }else{
+            wishButton = UIImage(systemName: "star")
+        }
+            var button = UIBarButtonItem(image: wishButton, style: .plain, target: self, action: #selector(action))
+            navigationItem.rightBarButtonItem = button
+            
         trailerView.delegate = self
         uploadDataAndFetching()
         if imdbID != nil {
@@ -57,14 +68,32 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
         }
        
     }
-
-    @IBAction func wishButton(_ sender: UIBarButtonItem) {
+    @objc func action (){
+        wish.toggle()
+        
+            if wish == false{
+                wishButton = UIImage(systemName: "star")
+                wishdeleted()
+                viewDidLoad()
+                
+            }else{
+                wishButton = UIImage(systemName: "star.fill")
+                wishSelcted()
+                viewDidLoad()
+               
+        }
+    }
+   func wishSelcted() {
         let docRef  = Auth.auth().currentUser?.email!
         let database = Firestore.firestore()
          database.collection("database").document("\(docRef!)").setData(["\(selectedDetails)":"\(nbID)"], merge: true)
 
     }
-  
+    func wishdeleted(){
+        let docRef  = Auth.auth().currentUser?.email!
+        let database = Firestore.firestore()
+        database.collection("database").document("\(docRef!)").updateData(["\(selectedDetails)":FieldValue.delete()])
+    }
     func fetchingTrailer(){
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(nbID)/videos?language=en-US")
      

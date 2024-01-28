@@ -18,13 +18,14 @@ class WishList:  UIViewController{
     @IBOutlet weak var tableView: UITableView!
     let database = Firestore.firestore()
     var firebase:[String:Any]?
-    var test : [Any] = []
+    var filtring : [Any] = []
     var apidata = ""
     var whishdata : WishListAPI?
     var data : [WishListAPI] = []
     var idOfMovie = 0
     var movieName = ""
     var spinner = false
+  
     private  var refhrea: UIRefreshControl{
              let ref = UIRefreshControl()
              ref.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
@@ -35,24 +36,22 @@ class WishList:  UIViewController{
         super.viewDidLoad()
         tableView.isHidden = true
         spinnerLoading.startAnimating()
-        
-         
-        
-        
         tableView.addSubview(refhrea)
         tableView.dataSource = self
         tableView.delegate = self
-  
        loadingAccount()
         tableView.register(UINib(nibName: "\(k.nib)", bundle: nil), forCellReuseIdentifier: "\(k.cCell)")
-   
+        
     }
     
  //MARK: Pull Refresh
     @objc func handleRefresh(_ control: UIRefreshControl){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        self.data = []
+        self.loadingAccount()
+        self.tableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             control.endRefreshing()
-            self.tableView.reloadData()
+            
         }
  //MARK: - Download the Data by Database
     }
@@ -63,9 +62,8 @@ class WishList:  UIViewController{
             if error == nil {
                 if document != nil && document!.exists {
                     self.firebase = document!.data()
-                    
                     let na = Array(self.firebase!.values)
-                    self.test = na
+                    self.filtring = na
                     self.wishListData()
                 }
             }
@@ -74,7 +72,7 @@ class WishList:  UIViewController{
     }
   //MARK: - API Call With Firebase Database
     func wishListData(){
-        for v in self.test {
+        for v in self.filtring {
             apidata = v as! String
        let  url = URL(string: "https://api.themoviedb.org/3/movie/\(apidata)?language=en-US")!
        
@@ -87,6 +85,7 @@ class WishList:  UIViewController{
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+           
             self.spinnerLoading.stopAnimating()
             self.tableView.isHidden = false
             self.tableView.reloadData()
@@ -148,6 +147,7 @@ extension WishList : UITableViewDelegate, UITableViewDataSource{
             if let destinationVC = segue.destination as? DetailsMovie{
                 destinationVC.selectedDetails = movieName
                 destinationVC.nbID = idOfMovie
+                destinationVC.wish = true
             }
         }
     }

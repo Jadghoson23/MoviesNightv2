@@ -36,7 +36,7 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         c.customiseBottom(bottom: topRattingButton)
         c.customiseBottom(bottom: popularButton)
         c.customiseBottom(bottom: nowPlaying)
