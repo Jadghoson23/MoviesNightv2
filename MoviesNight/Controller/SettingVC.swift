@@ -11,15 +11,15 @@ import UIKit
 import IQKeyboardManagerSwift
 class SettingVC: UIViewController{
     
-    @IBOutlet weak var newEmailTF: UITextField!
+
+    @IBOutlet weak var warringLabel: UILabel!
     
     @IBOutlet weak var newPasswordTF: UITextField!
     @IBOutlet weak var emailLabel: UILabel!
     
     
-    @IBOutlet weak var passwordLabel: UILabel!
     
-    @IBOutlet weak var changeEmail: UIButton!
+
     @IBOutlet weak var changePassword: UIButton!
     @IBOutlet weak var deleteAccount: UIButton!
     var newEmail:String = ""
@@ -27,41 +27,29 @@ class SettingVC: UIViewController{
     var userAccount: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        warringLabel.isHidden = true
         deleteAccount.tintColor = UIColor.red
-        c.designBottom(bottom: changeEmail)
+        changePassword.tintColor = UIColor.white
+        c.designTF(textField: newPasswordTF)
         c.designBottom(bottom: changePassword)
         c.designBottom(bottom: deleteAccount)
         userAccount = (Auth.auth().currentUser?.email)!
-        emailLabel.text = ("  Email:\(userAccount)")
+        emailLabel.text = ("  Account:\(userAccount)")
     }
     
     
-    
-    @IBAction func changeEmailButton(_ sender: UIButton) {
-        newEmail = newEmailTF.text!
-        Auth.auth().currentUser?.sendEmailVerification { [self] error in
-            if let error = error{
-                print(error.localizedDescription)
-            }else{
-                Auth.auth().currentUser?.updateEmail(to: newEmail) { error in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    }
-                }
-            }
-           
-        }
         
-    }
-    
     
   
     @IBAction func changePasswordButton(_ sender: UIButton) {
         newPassword = newPasswordTF.text!
         Auth.auth().currentUser?.updatePassword(to: newPassword) { error in
             if let error = error {
-                print(error.localizedDescription)
+                self.warringLabel.isHidden = false
+                self.warringLabel.text = error.localizedDescription
+            }else{
+                self.warringLabel.isHidden = false
+                self.warringLabel.text = "Your password has been Changed "
             }
         }
     }

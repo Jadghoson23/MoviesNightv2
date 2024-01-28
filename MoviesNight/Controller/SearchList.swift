@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import SDWebImage
 class SearchList: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    @IBOutlet weak var warringLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var userSearch: String?
     var selectedData: [Search] = []
@@ -18,7 +19,7 @@ class SearchList: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var totalPages:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        warringLabel.isHidden = true
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -57,6 +58,7 @@ class SearchList: UIViewController, UITableViewDelegate, UITableViewDataSource{
                     
                 }catch{
                     print("error to decoder")
+                    
                 }
             }
         }

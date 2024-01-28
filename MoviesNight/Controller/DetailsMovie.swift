@@ -23,6 +23,7 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     var wish: Bool = false
     var wishButton = UIImage(systemName: "star")
     var wishCheckButton = ""
+    var type = "t"
     //MARK: Label List
    
     
@@ -86,13 +87,13 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
    func wishSelcted() {
         let docRef  = Auth.auth().currentUser?.email!
         let database = Firestore.firestore()
-         database.collection("database").document("\(docRef!)").setData(["\(selectedDetails)":"\(nbID)"], merge: true)
+         database.collection("database").document("\(docRef!)").setData(["\(nbID)":"\(nbID)"], merge: true)
 
     }
     func wishdeleted(){
         let docRef  = Auth.auth().currentUser?.email!
         let database = Firestore.firestore()
-        database.collection("database").document("\(docRef!)").updateData(["\(selectedDetails)":FieldValue.delete()])
+        database.collection("database").document("\(docRef!)").updateData(["\(nbID)":FieldValue.delete()])
     }
     func fetchingTrailer(){
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(nbID)/videos?language=en-US")
@@ -129,7 +130,8 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     }
     //MARK: -API omdapi(Information of Movie)
     func ApiFectchingData(completion: @escaping(DetailsApi) -> ()){
-        let linkapi = "https://www.omdbapi.com/?t=\(selectedDetails)&apikey=\(k.apikey)&plot=full"
+        let linkapi = "https://www.omdbapi.com/?\(type)=\(selectedDetails)&apikey=\(k.apikey)&plot=short"
+        print(linkapi)
         let url = URL(string: linkapi)
         guard url != nil else{
             print("error api link")

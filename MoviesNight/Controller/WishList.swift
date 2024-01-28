@@ -137,7 +137,7 @@ extension WishList : UITableViewDelegate, UITableViewDataSource{
         return 150
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        movieName = data[indexPath.row].original_title
+        movieName = data[indexPath.row].imdb_id
         idOfMovie = data[indexPath.row].id
         performSegue(withIdentifier: "\(k.swd)", sender: self)
     }
@@ -148,6 +148,7 @@ extension WishList : UITableViewDelegate, UITableViewDataSource{
                 destinationVC.selectedDetails = movieName
                 destinationVC.nbID = idOfMovie
                 destinationVC.wish = true
+                destinationVC.type = "i"
             }
         }
     }
