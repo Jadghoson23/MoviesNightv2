@@ -51,8 +51,8 @@ class WishList:  UIViewController{
     func alertMessage(){
         let alert = UIAlertController(title: "Alert", message: "You must to login your account first", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            print("Hello World")
-            _ = self.navigationController?.popViewController(animated: true)
+            let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "backToUser") as! TabBarVC
+            self.navigationController?.pushViewController(storyboard, animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
     }

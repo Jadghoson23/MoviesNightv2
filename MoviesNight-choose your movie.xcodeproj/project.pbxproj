@@ -226,8 +226,8 @@
 			packageReferences = (
 				9306CC4B2B390E9900B5D593 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				93A19CAD2B39D7F30009A123 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */,
+				93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage.git" */,
+				93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView.git" */,
 			);
 			productRefGroup = 938DC6F82B34CC9500AF8A66;
 			projectDirPath = "";
@@ -441,7 +441,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = jadghoson7.MoviesNight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -469,7 +469,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = jadghoson7.MoviesNight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -511,7 +511,7 @@
 				minimumVersion = 10.19.1;
 			};
 		};
-		93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -527,7 +527,7 @@
 				minimumVersion = 6.5.16;
 			};
 		};
-		93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */ = {
+		93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmhv/YoutubePlayer-in-WKWebView.git";
 			requirement = {
@@ -550,7 +550,7 @@
 		};
 		93A0D7302B58AE1A00008561 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = 93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
 			productName = SDWebImage;
 		};
 		93A19CAE2B39D7F30009A123 /* IQKeyboardManagerSwift */ = {
@@ -560,7 +560,7 @@
 		};
 		93B6E4CC2B5D9B5A00983A9E /* YoutubePlayer-in-WKWebView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */;
+			package = 93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView.git" */;
 			productName = "YoutubePlayer-in-WKWebView";
 		};
 /* End XCSwiftPackageProductDependency section */
