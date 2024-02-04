@@ -13,6 +13,7 @@
 		9306CC512B39111D00B5D593 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306CC502B39111D00B5D593 /* SignUpVC.swift */; };
 		9306CC532B392DDF00B5D593 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306CC522B392DDF00B5D593 /* LogInVC.swift */; };
 		933C0A7F2B429E9C007178DF /* ListDataApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C0A7E2B429E9C007178DF /* ListDataApi.swift */; };
+		934969812B6F61D700C9FBDF /* TypesOfMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934969802B6F61D700C9FBDF /* TypesOfMovies.swift */; };
 		935E816D2B5889070007F6BB /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E816C2B5889070007F6BB /* TabBarVC.swift */; };
 		9366D0F32B3518CA00D0C4E3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9366D0F12B3518C900D0C4E3 /* TableViewCell.swift */; };
 		9366D0F42B3518CA00D0C4E3 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9366D0F22B3518CA00D0C4E3 /* TableViewCell.xib */; };
@@ -57,6 +58,7 @@
 		9306CC502B39111D00B5D593 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		9306CC522B392DDF00B5D593 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		933C0A7E2B429E9C007178DF /* ListDataApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataApi.swift; sourceTree = "<group>"; };
+		934969802B6F61D700C9FBDF /* TypesOfMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesOfMovies.swift; sourceTree = "<group>"; };
 		935E816C2B5889070007F6BB /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		9366D0F12B3518C900D0C4E3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		9366D0F22B3518CA00D0C4E3 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				935E816C2B5889070007F6BB /* TabBarVC.swift */,
 				930690CE2B64170C00B774E4 /* SettingVC.swift */,
 				93AFF0782B65822D0083FDF4 /* WishList.swift */,
+				934969802B6F61D700C9FBDF /* TypesOfMovies.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,8 +229,8 @@
 			packageReferences = (
 				9306CC4B2B390E9900B5D593 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				93A19CAD2B39D7F30009A123 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage.git" */,
-				93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView.git" */,
+				93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */,
 			);
 			productRefGroup = 938DC6F82B34CC9500AF8A66;
 			projectDirPath = "";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934969812B6F61D700C9FBDF /* TypesOfMovies.swift in Sources */,
 				938DC7092B34CC9500AF8A66 /* ViewController.swift in Sources */,
 				93ACEA172B657725001997A7 /* WishListAPI.swift in Sources */,
 				930690CF2B64170C00B774E4 /* SettingVC.swift in Sources */,
@@ -429,7 +433,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QSG86U5F64;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoviesNight/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -457,7 +461,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QSG86U5F64;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MoviesNight/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -511,7 +515,7 @@
 				minimumVersion = 10.19.1;
 			};
 		};
-		93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage.git" */ = {
+		93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -527,7 +531,7 @@
 				minimumVersion = 6.5.16;
 			};
 		};
-		93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView.git" */ = {
+		93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmhv/YoutubePlayer-in-WKWebView.git";
 			requirement = {
@@ -550,7 +554,7 @@
 		};
 		93A0D7302B58AE1A00008561 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage.git" */;
+			package = 93A0D72F2B58AE1A00008561 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 		93A19CAE2B39D7F30009A123 /* IQKeyboardManagerSwift */ = {
@@ -560,7 +564,7 @@
 		};
 		93B6E4CC2B5D9B5A00983A9E /* YoutubePlayer-in-WKWebView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView.git" */;
+			package = 93B6E4CB2B5D9B5A00983A9E /* XCRemoteSwiftPackageReference "YoutubePlayer-in-WKWebView" */;
 			productName = "YoutubePlayer-in-WKWebView";
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -58,13 +58,6 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
         if Auth.auth().currentUser?.email == nil{
             button.isEnabled = false
         }
-        
-        
-        
-        
-        
-        
-        
         trailerView.delegate = self
         uploadDataAndFetching()
         if imdbID != nil {
@@ -78,7 +71,6 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
             self.loadingLabel.isHidden = true
             self.trailerView.load(withVideoId: "\(self.trailerID)")
         }
-       
     }
     @objc func action (){
         wish.toggle()
@@ -87,12 +79,10 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
                 wishButton = UIImage(systemName: "star")
                 wishdeleted()
                 viewDidLoad()
-                
             }else{
                 wishButton = UIImage(systemName: "star.fill")
                 wishSelcted()
                 viewDidLoad()
-               
         }
     }
    func wishSelcted() {
@@ -123,7 +113,6 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
             self.newData = data
             DispatchQueue.main.sync {
                 //MARK: Display the Data to Labels
-                
                 self.releaseDate.text = ("Release Date: \(self.newData!.Released)")
                 self.runTime.text = ("Runtime: \(self.newData!.Runtime)")
                 self.generLabel.text = ("Genre: \(self.newData!.Genre)")
@@ -231,7 +220,6 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
                     do {
                         let result = try JSONDecoder().decode(ConvertAPI.self, from: data)
                         completion(result.movie_results.self)
-                      
                     } catch let error {
                         print(error)
                     }

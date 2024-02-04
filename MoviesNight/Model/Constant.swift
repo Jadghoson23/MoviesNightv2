@@ -39,6 +39,13 @@ struct c{
         bottom.layer.borderColor = UIColor.red.cgColor
         bottom.tintColor = UIColor.red
     }
+    static func customiseBottomTypes(bottom:UIButton){
+        bottom.layer.cornerRadius = bottom.frame.height / 2
+        bottom.layer.masksToBounds = true
+        bottom.layer.borderWidth = 2.0
+        bottom.layer.borderColor = UIColor.red.cgColor
+        bottom.tintColor = UIColor.white
+    }
 }
 struct api {
     static let h = [

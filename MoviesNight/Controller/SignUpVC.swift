@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 class SignUpVC: UIViewController {
     
-    var welcomeVC = WelcomeAppVC()
+
     
     @IBOutlet weak var warringLabel: UILabel!
     

@@ -21,7 +21,6 @@ class WelcomeAppVC:UIViewController{
         super.viewDidLoad()
         c.designBottom(bottom: loginButton)
         c.designBottom(bottom: signupButton)
-        //loginButton.frame = CGRect(x: 0, y:0, width: 200, height: 50)
         
         movieAnimation.text = ""
         var charIndex = 0.0

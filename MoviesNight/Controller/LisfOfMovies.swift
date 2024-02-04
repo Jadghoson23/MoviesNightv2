@@ -77,6 +77,7 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
     @IBAction func nowPlaying(_ sender: UIButton) {
         mode = "now_playing"
         nbPages = 1
+        topScroll()
         nowPlaying.tintColor = UIColor.white
         topRattingButton.tintColor = UIColor.red
         popularButton.tintColor = UIColor.red
