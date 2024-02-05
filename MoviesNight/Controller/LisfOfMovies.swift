@@ -67,7 +67,7 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
     @IBAction func topRated(_ sender: UIButton) {
         mode = "top_rated"
         nbPages = 1
-        topScroll()
+        t.topscroll(tableView: listTV)
         topRattingButton.tintColor = UIColor.white
         nowPlaying.tintColor = UIColor.red
         popularButton.tintColor = UIColor.red
@@ -77,7 +77,7 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
     @IBAction func nowPlaying(_ sender: UIButton) {
         mode = "now_playing"
         nbPages = 1
-        topScroll()
+        t.topscroll(tableView: listTV)
         nowPlaying.tintColor = UIColor.white
         topRattingButton.tintColor = UIColor.red
         popularButton.tintColor = UIColor.red
@@ -87,7 +87,7 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
     @IBAction func popularMovies(_ sender: UIButton) {
         mode = "popular"
         nbPages = 1
-        topScroll()
+        t.topscroll(tableView: listTV)
         nowPlaying.tintColor = UIColor.red
         topRattingButton.tintColor = UIColor.red
         popularButton.tintColor = UIColor.white
@@ -98,7 +98,7 @@ class ListOfMovies: UIViewController,UIScrollViewDelegate{
     @IBAction func upComming(_ sender: UIButton) {
         mode = "upcoming"
         nbPages = 1
-        topScroll()
+        t.topscroll(tableView: listTV)
         nowPlaying.tintColor = UIColor.red
         topRattingButton.tintColor = UIColor.red
         popularButton.tintColor = UIColor.red
@@ -177,10 +177,7 @@ extension ListOfMovies: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    func topScroll(){
-        let indexPath = IndexPath(row: 0, section: 0 )
-        listTV.scrollToRow(at: indexPath, at: .top, animated: true)
-    }
+  
 
     //MARK: - Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -9,36 +9,120 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class TypesOfMovies: UIViewController{
+class TypesOfMovies: UIViewController,UIScrollViewDelegate{
   
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var sienceButton: UIButton!
+    @IBOutlet weak var familyButton: UIButton!
+    @IBOutlet weak var dramaButton: UIButton!
+    @IBOutlet weak var animationButton: UIButton!
     @IBOutlet weak var horrorButton: UIButton!
     @IBOutlet weak var comedyButton: UIButton!
     @IBOutlet weak var romanceButton: UIButton!
     @IBOutlet weak var actionButton: UIButton!
     private var database : [results] = []
+    var gener : Int = 27
     var totalPage : Int = 0
     let  url = URL(string: "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=27")!
+    private  var refhrea: UIRefreshControl{
+             let ref = UIRefreshControl()
+             ref.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+             return ref
+      }
     var nbPage = 1
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "\(k.nib)", bundle: nil), forCellReuseIdentifier: "\(k.cCell)")
-        print("Run")
+        tableView.addSubview(refhrea)
         fetchingData()
         c.customiseBottomTypes(bottom: horrorButton)
         c.customiseBottomTypes(bottom: comedyButton)
         c.customiseBottomTypes(bottom: romanceButton)
         c.customiseBottomTypes(bottom: actionButton)
+        c.customiseBottomTypes(bottom: sienceButton)
+        c.customiseBottomTypes(bottom: familyButton)
+        c.customiseBottomTypes(bottom: dramaButton)
+        c.customiseBottomTypes(bottom: animationButton)
         horrorButton.backgroundColor = UIColor.white
-        
-        
-        
-        
-        
+        horrorButton.tintColor = UIColor.black
     }
+    //MARK: - Button Option
+    
+    @IBAction func horrorBotton(_ sender: UIButton) {
+        c.selectedColor(bottom1: horrorButton, bottom2: comedyButton, bottom3: romanceButton, bottom4: actionButton, bottom5: sienceButton, bottom6: familyButton, bottom7: dramaButton, bottom8: animationButton)
+        c.selecteColor(sender: horrorButton)
+        nbPage = 1
+        gener = 27
+        fetchingData()
+        t.topscroll(tableView: tableView)
+    }
+    
+    @IBAction func actionButton(_ sender: UIButton) {
+        c.selectedColor(bottom1: actionButton, bottom2: comedyButton, bottom3: romanceButton, bottom4: horrorButton, bottom5: sienceButton, bottom6: familyButton, bottom7: dramaButton, bottom8: animationButton)
+        c.selecteColor(sender: actionButton)
+        gener = 28
+        nbPage = 1
+        fetchingData()
+        t.topscroll(tableView: tableView)
+    }
+    
+    @IBAction func comedyButton(_ sender: UIButton) {
+        c.selectedColor(bottom1: comedyButton, bottom2: horrorButton, bottom3: romanceButton, bottom4: actionButton, bottom5: sienceButton, bottom6: familyButton, bottom7: dramaButton, bottom8: animationButton)
+        c.selecteColor(sender: comedyButton)
+        gener = 35
+        nbPage = 1
+        fetchingData()
+        t.topscroll(tableView: tableView)
+    }
+    
+    @IBAction func romanceButton(_ sender: UIButton) {
+        c.selectedColor(bottom1: romanceButton, bottom2: comedyButton, bottom3: horrorButton, bottom4: actionButton, bottom5: sienceButton, bottom6: familyButton, bottom7: dramaButton, bottom8: animationButton)
+        c.selecteColor(sender: romanceButton)
+        gener = 10749
+        nbPage = 1
+        fetchingData()
+        t.topscroll(tableView: tableView)
+    }
+    
+    @IBAction func animationButton(_ sender: UIButton) {
+        c.selectedColor(bottom1: animationButton, bottom2: comedyButton, bottom3: romanceButton, bottom4: actionButton, bottom5: sienceButton, bottom6: familyButton, bottom7: dramaButton, bottom8: horrorButton)
+        c.selecteColor(sender: animationButton)
+        gener = 16
+        nbPage = 1
+        fetchingData()
+        t.topscroll(tableView: tableView)
+    }
+    
+    @IBAction func dramaButton(_ sender: UIButton) {
+        c.selectedColor(bottom1: dramaButton, bottom2: comedyButton, bottom3: romanceButton, bottom4: actionButton, bottom5: sienceButton, bottom6: familyButton, bottom7: horrorButton, bottom8: animationButton)
+        c.selecteColor(sender: dramaButton)
+        gener = 18
+        nbPage = 1
+        fetchingData()
+        t.topscroll(tableView: tableView)
+    }
+    
+    @IBAction func familyButton(_ sender: UIButton) {
+        c.selectedColor(bottom1: familyButton, bottom2: comedyButton, bottom3: romanceButton, bottom4: actionButton, bottom5: sienceButton, bottom6: horrorButton, bottom7: dramaButton, bottom8: animationButton)
+        c.selecteColor(sender: familyButton)
+        gener = 10751
+        nbPage = 1
+        fetchingData()
+        t.topscroll(tableView: tableView)
+    }
+    
+    @IBAction func sienceButton(_ sender: UIButton) {
+        c.selectedColor(bottom1: sienceButton, bottom2: comedyButton, bottom3: romanceButton, bottom4: actionButton, bottom5: horrorButton, bottom6: familyButton, bottom7: dramaButton, bottom8: animationButton)
+        c.selecteColor(sender: sienceButton)
+        gener = 878
+        nbPage = 1
+        fetchingData()
+        t.topscroll(tableView: tableView)
+    }
+    //MARK: - Calling API
     func fetchingData(){
        
         auth(with: url, token: api.t){(listDatapi: ListDataApi) in
@@ -46,7 +130,7 @@ class TypesOfMovies: UIViewController{
                 self.database = listDatapi.results
                 self.totalPage = listDatapi.total_pages
                 self.tableView.reloadData()
-                print("Hello World")
+              
             }
         }
     }
@@ -55,7 +139,7 @@ class TypesOfMovies: UIViewController{
     func auth(with url: URL, token: String, completion: @escaping (ListDataApi) -> ()) {
       
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=\(nbPage)&sort_by=popularity.desc&with_genres=27")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=\(nbPage)&sort_by=popularity.desc&with_genres=\(gener)")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
       
@@ -78,12 +162,14 @@ class TypesOfMovies: UIViewController{
         })
         dataTask.resume()
     }
+//MARK: - Pull Refresh
     
-  //MARK: - Button Option
-    
-    
-    
-    
+    @objc func handleRefresh(_ control: UIRefreshControl){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            control.endRefreshing()
+            self.tableView.reloadData()
+        }
+    }
     
 }
 //MARK: - TableView Methods

@@ -14,11 +14,18 @@ struct k {
     static let signToApp = "signupToApp"
     static let sl = "searchList"
     static let sd = "ListToDetails"
+    static let st = "TypeToDetails"
     static let cCell = "MoviesCell"
     static let gtd = "goToDetails"
     static let nib = "TableViewCell"
     static let swd = "wishToDetails"
     
+}
+struct t {
+    static func topscroll(tableView: UITableView){
+        let indexPath = IndexPath(row: 0, section: 0 )
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+    }
 }
 struct c{
     static func designTF(textField: UITextField){
@@ -45,6 +52,30 @@ struct c{
         bottom.layer.borderWidth = 2.0
         bottom.layer.borderColor = UIColor.red.cgColor
         bottom.tintColor = UIColor.white
+    }
+    static func selecteColor(sender:UIButton){
+        sender.backgroundColor = UIColor.white
+        sender.tintColor = UIColor.black
+        
+    }
+    static func selectedColor(bottom1:UIButton,bottom2:UIButton,bottom3:UIButton,bottom4:UIButton,bottom5:UIButton,bottom6:UIButton,bottom7:UIButton,bottom8:UIButton){
+        bottom1.backgroundColor = UIColor.white
+        bottom1.tintColor = UIColor.black
+        bottom2.backgroundColor = UIColor.red
+        bottom2.tintColor = UIColor.white
+        bottom3.backgroundColor = UIColor.red
+        bottom3.tintColor = UIColor.white
+        bottom4.backgroundColor = UIColor.red
+        bottom4.tintColor = UIColor.white
+        bottom5.backgroundColor = UIColor.red
+        bottom5.tintColor = UIColor.white
+        bottom6.backgroundColor = UIColor.red
+        bottom6.tintColor = UIColor.white
+        bottom7.backgroundColor = UIColor.red
+        bottom7.tintColor = UIColor.white
+        bottom8.backgroundColor = UIColor.red
+        bottom8.tintColor = UIColor.white
+        
     }
 }
 struct api {
