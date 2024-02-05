@@ -32,6 +32,8 @@ class TypesOfMovies: UIViewController,UIScrollViewDelegate{
              return ref
       }
     var nbPage = 1
+    private var transferData : String = ""
+    private var idNB : Int = 0
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -208,5 +210,19 @@ extension TypesOfMovies: UITableViewDelegate,UITableViewDataSource{
             return
         }
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        transferData = database[indexPath.row].title
+        idNB = database[indexPath.row].id
+        performSegue(withIdentifier: "\(k.st)", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "\(k.st)"{
+            if let destinationVC = segue.destination as? DetailsMovie{
+                destinationVC.selectedDetails = transferData
+                destinationVC.nbID = idNB
+            }
+        }
+
+    }
 }
