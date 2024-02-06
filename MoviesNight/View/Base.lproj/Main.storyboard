@@ -803,6 +803,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Family"/>
+                                                <connections>
+                                                    <action selector="familyButton:" destination="tde-5A-66Z" eventType="touchUpInside" id="tGU-Dj-tgh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHv-7B-lAM">
                                                 <rect key="frame" x="694" y="24" width="139.66666666666663" height="35"/>
@@ -813,6 +816,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Science Fiction"/>
+                                                <connections>
+                                                    <action selector="sienceButton:" destination="tde-5A-66Z" eventType="touchUpInside" id="wrd-W4-QpC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
