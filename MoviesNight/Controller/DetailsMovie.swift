@@ -27,6 +27,7 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     //MARK: Label List
    
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingLabel: UILabel!
     
     @IBOutlet weak var trailerView: WKYTPlayerView!
@@ -44,7 +45,12 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
+        
+        
+        
         if wish == true{
             wishButton = UIImage(systemName: "star.fill")
 
@@ -228,4 +234,25 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
             dataTask.resume()
         }
     }
+}
+//MARK: - Extension Collection View
+
+extension DetailsMovie: UICollectionViewDelegate,UICollectionViewDataSource{
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        cell.charachterName.text = "Rambo"
+        cell.castName.text = "Sylvester Stalone"
+           return cell
+       
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Hello World")
+    }
+    
 }

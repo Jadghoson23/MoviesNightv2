@@ -38,6 +38,8 @@
 		93AFF0792B65822D0083FDF4 /* WishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AFF0782B65822D0083FDF4 /* WishList.swift */; };
 		93B004412B62B41A00DF53ED /* ConvertAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B004402B62B41A00DF53ED /* ConvertAPI.swift */; };
 		93B6E4CD2B5D9B5A00983A9E /* YoutubePlayer-in-WKWebView in Frameworks */ = {isa = PBXBuildFile; productRef = 93B6E4CC2B5D9B5A00983A9E /* YoutubePlayer-in-WKWebView */; };
+		93B9A63E2B724D6900F736EE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B9A63C2B724D6900F736EE /* CollectionViewCell.swift */; };
+		93B9A63F2B724D6900F736EE /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B9A63D2B724D6900F736EE /* CollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,6 +84,8 @@
 		93ACEA162B657725001997A7 /* WishListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListAPI.swift; sourceTree = "<group>"; };
 		93AFF0782B65822D0083FDF4 /* WishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishList.swift; sourceTree = "<group>"; };
 		93B004402B62B41A00DF53ED /* ConvertAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertAPI.swift; sourceTree = "<group>"; };
+		93B9A63C2B724D6900F736EE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		93B9A63D2B724D6900F736EE /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 				938DC70A2B34CC9500AF8A66 /* Main.storyboard */,
 				9366D0F22B3518CA00D0C4E3 /* TableViewCell.xib */,
 				938DC70F2B34CC9800AF8A66 /* LaunchScreen.storyboard */,
+				93B9A63C2B724D6900F736EE /* CollectionViewCell.swift */,
+				93B9A63D2B724D6900F736EE /* CollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +254,7 @@
 			files = (
 				938DC7112B34CC9800AF8A66 /* LaunchScreen.storyboard in Resources */,
 				9366D0F42B3518CA00D0C4E3 /* TableViewCell.xib in Resources */,
+				93B9A63F2B724D6900F736EE /* CollectionViewCell.xib in Resources */,
 				93A067B12B364D9B00E032DA /* GoogleService-Info.plist in Resources */,
 				938DC70E2B34CC9800AF8A66 /* Assets.xcassets in Resources */,
 				938DC70C2B34CC9500AF8A66 /* Main.storyboard in Resources */,
@@ -271,6 +278,7 @@
 				938DC7072B34CC9500AF8A66 /* SceneDelegate.swift in Sources */,
 				93AFF0792B65822D0083FDF4 /* WishList.swift in Sources */,
 				93A0D8CE2B35F0F100FFF77B /* DetailsApi.swift in Sources */,
+				93B9A63E2B724D6900F736EE /* CollectionViewCell.swift in Sources */,
 				9366D0F32B3518CA00D0C4E3 /* TableViewCell.swift in Sources */,
 				938DC71B2B34CD2000AF8A66 /* SearchList.swift in Sources */,
 				933C0A7F2B429E9C007178DF /* ListDataApi.swift in Sources */,
