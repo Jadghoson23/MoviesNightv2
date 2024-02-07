@@ -164,6 +164,7 @@ extension ListOfMovies: UITableViewDataSource, UITableViewDelegate{
         listTV.deselectRow(at: indexPath, animated: true)
         transferData = database[indexPath.row].title
         idNB = database[indexPath.row].id
+        print(idNB)
         performSegue(withIdentifier: "\(k.sd)", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

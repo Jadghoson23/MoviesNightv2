@@ -24,6 +24,8 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
     var wishButton = UIImage(systemName: "star")
     var wishCheckButton = ""
     var type = "t"
+    var castData : [cast] = []
+    var castID : Int = 0
     //MARK: Label List
    
     
@@ -45,32 +47,37 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if imdbID != nil {
+            convertAPI()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                self.fetchingCastData()
+                self.collectionView.reloadData()
+            }
+        }else{
+            fetchingCastData()
+        }
+        trailerView.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
-        
-        
-        
         if wish == true{
             wishButton = UIImage(systemName: "star.fill")
-
         }else{
             wishButton = UIImage(systemName: "star")
         }
         let button = UIBarButtonItem(image: wishButton, style: .plain, target: self, action: #selector(action))
             navigationItem.rightBarButtonItem = button
-            
-        
         if Auth.auth().currentUser?.email == nil{
             button.isEnabled = false
         }
-        trailerView.delegate = self
         uploadDataAndFetching()
-        if imdbID != nil {
-            convertAPI()
-        }
+        
+        
+      
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
             self.fetchingTrailer()
+            self.collectionView.reloadData()
         }
         //MARK: Trailer Display
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
@@ -102,9 +109,10 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
         let database = Firestore.firestore()
         database.collection("database").document("\(docRef!)").updateData(["\(nbID)":FieldValue.delete()])
     }
+    //MARK: - Calling API Trailer
     func fetchingTrailer(){
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(nbID)/videos?language=en-US")
-     
+        
         auth(with: url!, token: api.t){(apiTrailer: [results]) in
             DispatchQueue.main.async {
                 guard apiTrailer.count >= 1 else {return}
@@ -112,6 +120,16 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
                 print(apiTrailer.count)
             }
         }
+    }
+        //MARK: - Calling API Cast
+        func fetchingCastData(){
+            let url = URL(string:"https://api.themoviedb.org/3/movie/\(nbID)/credits?language=en-US")
+            auth(with: url!, token: api.t){(castingData: CastApi) in
+                DispatchQueue.main.async {
+                    self.castData = castingData.cast
+                }
+            }
+        
     }
     //MARK: - Calling API (OMD)
     func uploadDataAndFetching(){
@@ -235,24 +253,78 @@ class DetailsMovie: UIViewController, WKYTPlayerViewDelegate {
         }
     }
 }
-//MARK: - Extension Collection View
+//MARK: - Extension Collection & API Cast
 
 extension DetailsMovie: UICollectionViewDelegate,UICollectionViewDataSource{
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+    //MARK: - collection Methods
+       func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            castData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        cell.charachterName.text = "Rambo"
-        cell.castName.text = "Sylvester Stalone"
-           return cell
-       
+        
+        let imageURL = castData[indexPath.row].profile_path
+ 
+        if imageURL == URL(string:"") {
+            let image = URL(string:k.di)
+            cell.imageCell.download(from: image!)
+        }else {
+            let image = "https://image.tmdb.org/t/p/w500\(imageURL!)"
+            cell.imageCell.download(from: image)
+        }
+        cell.charachterName.text = castData[indexPath.row].character
+        cell.castName.text = castData[indexPath.row].original_name
+        return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Hello World")
+        castID = castData[indexPath.row].id
+        performSegue(withIdentifier: "CastToMovies", sender: self)
+        
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CastToMovies"{
+            if let destinationVC = segue.destination as? CastOfMovies{
+                destinationVC.castID = castID
+            }
+        }
+    }
+//MARK: - API Casting
+    func auth(with url: URL, token: String, completion: @escaping (CastApi) -> ()) {
+      
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://api.themoviedb.org/3/movie/\(nbID)/credits?language=en-US")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+      
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = api.h
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error as Any)
+            } else {
+                guard let data = data else { return }
+                do {
+                    let result = try JSONDecoder().decode(CastApi.self, from: data)
+                    completion(result.self)
+                } catch let error {
+                    print(error)
+                }
+            }
+        })
+        dataTask.resume()
+    }
+
+}
+//MARK: - API of Cast
+struct CastApi: Codable{
+    let cast:[cast]
+}
+struct cast: Codable{
+    let id :Int
+    let original_name :String
+    let character:String
+    let profile_path:URL!
 }

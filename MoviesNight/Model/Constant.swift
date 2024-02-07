@@ -15,10 +15,13 @@ struct k {
     static let sl = "searchList"
     static let sd = "ListToDetails"
     static let st = "TypeToDetails"
+    static let scd = "CastToDetails"
     static let cCell = "MoviesCell"
     static let gtd = "goToDetails"
     static let nib = "TableViewCell"
     static let swd = "wishToDetails"
+    static let di = "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg?size=338&ext=jpg&ga=GA1.1.87170709.1707264000&semt=ais"
+    static let dmi = "https://eagle-sensors.com/wp-content/uploads/unavailable-image.jpg"
     
 }
 struct t {

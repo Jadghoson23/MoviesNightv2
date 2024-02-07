@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ixj-s0-GOE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VLC-Jn-xSZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -105,14 +105,14 @@
             <objects>
                 <viewController id="Ixj-s0-GOE" customClass="DetailsMovie" customModule="MoviesNight_choose_your_movie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xF6-GZ-vxt">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Oj-9q-j6b">
-                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b25-ky-hPi">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1500"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1350"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g7B-tD-KYy">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="479"/>
@@ -231,9 +231,16 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uY-of-cTC">
+                                                <rect key="frame" x="20" y="1127" width="353" height="20.333333333333258"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="2uY-of-cTC" firstAttribute="top" secondItem="Lo9-Ws-Czz" secondAttribute="bottom" constant="20" id="1XZ-3z-GvJ"/>
                                             <constraint firstAttribute="trailing" secondItem="xNe-6G-es8" secondAttribute="trailing" constant="20" id="6iU-6f-lNF"/>
                                             <constraint firstItem="Lo9-Ws-Czz" firstAttribute="top" secondItem="xNe-6G-es8" secondAttribute="bottom" constant="30" id="76I-KS-KXd"/>
                                             <constraint firstItem="xNe-6G-es8" firstAttribute="top" secondItem="R2s-eW-YGj" secondAttribute="bottom" constant="20" id="Ad3-Xy-bc5"/>
@@ -241,12 +248,14 @@
                                             <constraint firstItem="Lo9-Ws-Czz" firstAttribute="leading" secondItem="b25-ky-hPi" secondAttribute="leading" constant="20" id="Crq-4Q-HQ9"/>
                                             <constraint firstAttribute="trailing" secondItem="s9x-6D-qIQ" secondAttribute="trailing" constant="10" id="E9n-Je-E18"/>
                                             <constraint firstAttribute="trailing" secondItem="Lo9-Ws-Czz" secondAttribute="trailing" constant="20" id="FFA-VY-tuq"/>
-                                            <constraint firstItem="s9x-6D-qIQ" firstAttribute="top" secondItem="Lo9-Ws-Czz" secondAttribute="bottom" constant="50" id="G6O-Fq-p3A"/>
+                                            <constraint firstAttribute="trailing" secondItem="2uY-of-cTC" secondAttribute="trailing" constant="20" id="HQE-Nn-A0P"/>
                                             <constraint firstItem="xNe-6G-es8" firstAttribute="leading" secondItem="b25-ky-hPi" secondAttribute="leading" constant="20" id="It4-dw-hMb"/>
                                             <constraint firstAttribute="trailing" secondItem="g7B-tD-KYy" secondAttribute="trailing" id="Ja9-Ns-Use"/>
+                                            <constraint firstItem="2uY-of-cTC" firstAttribute="leading" secondItem="b25-ky-hPi" secondAttribute="leading" constant="20" id="K1B-Lz-ghI"/>
                                             <constraint firstItem="s9x-6D-qIQ" firstAttribute="leading" secondItem="b25-ky-hPi" secondAttribute="leading" constant="10" id="KAj-Y9-INr"/>
+                                            <constraint firstItem="s9x-6D-qIQ" firstAttribute="top" secondItem="2uY-of-cTC" secondAttribute="bottom" constant="9.6699999999999999" id="KwK-0u-9Je"/>
                                             <constraint firstItem="6EP-Pe-Vu9" firstAttribute="leading" secondItem="b25-ky-hPi" secondAttribute="leading" constant="20" id="Ujh-fI-5cg"/>
-                                            <constraint firstAttribute="height" constant="1500" id="gCe-CL-IgG"/>
+                                            <constraint firstAttribute="height" constant="1350" id="gCe-CL-IgG"/>
                                             <constraint firstItem="g7B-tD-KYy" firstAttribute="leading" secondItem="b25-ky-hPi" secondAttribute="leading" id="hsN-MK-DxK"/>
                                             <constraint firstItem="g7B-tD-KYy" firstAttribute="top" secondItem="b25-ky-hPi" secondAttribute="top" id="mKg-eK-t9F"/>
                                             <constraint firstItem="R2s-eW-YGj" firstAttribute="leading" secondItem="b25-ky-hPi" secondAttribute="leading" constant="20" id="mis-SA-WzY"/>
@@ -291,11 +300,54 @@
                         <outlet property="runTime" destination="tlz-Db-KtQ" id="8Az-6q-bKo"/>
                         <outlet property="trailerView" destination="Lo9-Ws-Czz" id="iF3-v7-7YO"/>
                         <outlet property="writerLabel" destination="aHa-MC-UPZ" id="coM-Ph-JoS"/>
+                        <segue destination="zNC-zQ-hsu" kind="show" identifier="CastToMovies" id="Z6w-NU-l7I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6Z-dF-lKM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5681.679389312977" y="-28.169014084507044"/>
+        </scene>
+        <!--Cast Of Movies-->
+        <scene sceneID="vxH-Ex-OuK">
+            <objects>
+                <viewController id="zNC-zQ-hsu" customClass="CastOfMovies" customModule="MoviesNight_choose_your_movie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2pV-Ie-iQK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DJg-8R-LcH">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="XWL-Yq-go2">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XWL-Yq-go2" id="sIZ-nn-vSx">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zpm-rB-NmO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DJg-8R-LcH" firstAttribute="trailing" secondItem="Zpm-rB-NmO" secondAttribute="trailing" id="Vw5-UV-cyW"/>
+                            <constraint firstItem="DJg-8R-LcH" firstAttribute="top" secondItem="Zpm-rB-NmO" secondAttribute="top" id="iuv-vB-COk"/>
+                            <constraint firstItem="DJg-8R-LcH" firstAttribute="leading" secondItem="Zpm-rB-NmO" secondAttribute="leading" id="kjd-Ze-Se4"/>
+                            <constraint firstAttribute="bottom" secondItem="DJg-8R-LcH" secondAttribute="bottom" id="klt-MM-XZh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vj5-pd-P6Y"/>
+                    <connections>
+                        <outlet property="tableView" destination="DJg-8R-LcH" id="fEY-9T-WUJ"/>
+                        <segue destination="Ixj-s0-GOE" kind="show" identifier="CastToDetails" id="hVv-kl-VtK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ecz-Uy-3ty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6985.4961832061063" y="-27.464788732394368"/>
         </scene>
         <!--Welcome AppVC-->
         <scene sceneID="zNk-2C-hki">
@@ -1102,8 +1154,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Z6w-NU-l7I"/>
         <segue reference="dV9-4w-YB0"/>
-        <segue reference="K7v-wF-VE8"/>
+        <segue reference="hVv-kl-VtK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="123"/>
