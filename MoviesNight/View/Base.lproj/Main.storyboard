@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VLC-Jn-xSZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IR4-Lj-ttQ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3574.8091603053435" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="4501.5267175572517" y="-27.464788732394368"/>
         </scene>
         <!--Search List-->
         <scene sceneID="gLh-WT-AgZ">
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUG-wn-UOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4478.6259541984728" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="5405.3435114503818" y="-27.464788732394368"/>
         </scene>
         <!--Details Movie-->
         <scene sceneID="1jK-Kt-Q0p">
@@ -305,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6Z-dF-lKM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5681.679389312977" y="-28.169014084507044"/>
+            <point key="canvasLocation" x="6608.3969465648852" y="-28.169014084507044"/>
         </scene>
         <!--Cast Of Movies-->
         <scene sceneID="vxH-Ex-OuK">
@@ -347,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecz-Uy-3ty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6985.4961832061063" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="7912.2137404580153" y="-27.464788732394368"/>
         </scene>
         <!--Welcome AppVC-->
         <scene sceneID="zNk-2C-hki">
@@ -638,7 +638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHL-Nv-7fq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758.01526717557249" y="352.81690140845075"/>
+            <point key="canvasLocation" x="1684.7328244274809" y="352.81690140845075"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ANZ-Qd-pjs">
@@ -766,7 +766,94 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uH-Ep-7YS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4431" y="741"/>
+            <point key="canvasLocation" x="5356.4885496183206" y="740.84507042253529"/>
+        </scene>
+        <!--Phone Number Verfication-->
+        <scene sceneID="F1S-Af-UaT">
+            <objects>
+                <viewController id="IR4-Lj-ttQ" customClass="PhoneNumberVerfication" customModule="MoviesNight_choose_your_movie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mh3-BV-6FV">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qo4-RH-O4N">
+                                <rect key="frame" x="40" y="99" width="313" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="q8P-eh-Jql"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="+961 XX XXX XXX" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6va-xb-mpj">
+                                <rect key="frame" x="40" y="251" width="313" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2D-Jg-twA">
+                                <rect key="frame" x="124" y="409" width="145" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButton:" destination="IR4-Lj-ttQ" eventType="touchUpInside" id="QXb-P0-9Fa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4vh-km-aDJ"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <constraints>
+                            <constraint firstItem="4vh-km-aDJ" firstAttribute="trailing" secondItem="qo4-RH-O4N" secondAttribute="trailing" constant="40" id="H9z-s0-6tQ"/>
+                            <constraint firstItem="qo4-RH-O4N" firstAttribute="top" secondItem="4vh-km-aDJ" secondAttribute="top" constant="40" id="KCa-8x-FPa"/>
+                            <constraint firstItem="qo4-RH-O4N" firstAttribute="leading" secondItem="4vh-km-aDJ" secondAttribute="leading" constant="40" id="Q9w-T5-GPd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wL0-k1-GDT"/>
+                    <connections>
+                        <segue destination="J4F-Hl-QBY" kind="show" identifier="NumberToSMS" id="592-Tz-6Kr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TAZ-dL-tTT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-50" y="741"/>
+        </scene>
+        <!--CodeVC-->
+        <scene sceneID="TLv-7T-pdF">
+            <objects>
+                <viewController id="J4F-Hl-QBY" customClass="SMSCodeVC" customModule="MoviesNight_choose_your_movie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hPI-NQ-182">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PFR-fm-TkH">
+                                <rect key="frame" x="98" y="231" width="197" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvG-5P-3fq">
+                                <rect key="frame" x="159" y="502" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="submitButton:" destination="J4F-Hl-QBY" eventType="touchUpInside" id="AqO-BF-rwL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3xT-c4-RwK"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D85-d2-S1j"/>
+                    <connections>
+                        <outlet property="smsVerfication" destination="PFR-fm-TkH" id="0Rc-CM-cHp"/>
+                        <outlet property="submitButton" destination="tvG-5P-3fq" id="PqT-z8-wCm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bi0-tD-JUj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733.58778625954199" y="740.84507042253529"/>
         </scene>
         <!--Types-->
         <scene sceneID="9N1-JI-ZL7">
@@ -1102,7 +1189,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IP2-VO-3l0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2648.0916030534349" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="3574.8091603053435" y="-27.464788732394368"/>
         </scene>
         <!--Wishlist-->
         <scene sceneID="nbg-ox-D6a">
@@ -1150,12 +1237,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XF1-at-bhn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2646.5648854961833" y="740.84507042253529"/>
+            <point key="canvasLocation" x="3573.2824427480914" y="740.84507042253529"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Z6w-NU-l7I"/>
-        <segue reference="dV9-4w-YB0"/>
+        <segue reference="vJ1-1u-fSe"/>
         <segue reference="hVv-kl-VtK"/>
     </inferredMetricsTieBreakers>
     <resources>

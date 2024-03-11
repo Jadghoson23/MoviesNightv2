@@ -14,6 +14,7 @@
 		9306CC532B392DDF00B5D593 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9306CC522B392DDF00B5D593 /* LogInVC.swift */; };
 		933C0A7F2B429E9C007178DF /* ListDataApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C0A7E2B429E9C007178DF /* ListDataApi.swift */; };
 		934969812B6F61D700C9FBDF /* TypesOfMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934969802B6F61D700C9FBDF /* TypesOfMovies.swift */; };
+		934FF6802B9B88330036A3E5 /* PhoneNumberVerfication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FF67F2B9B88330036A3E5 /* PhoneNumberVerfication.swift */; };
 		935E816D2B5889070007F6BB /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935E816C2B5889070007F6BB /* TabBarVC.swift */; };
 		9366D0F32B3518CA00D0C4E3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9366D0F12B3518C900D0C4E3 /* TableViewCell.swift */; };
 		9366D0F42B3518CA00D0C4E3 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9366D0F22B3518CA00D0C4E3 /* TableViewCell.xib */; };
@@ -40,6 +41,8 @@
 		93B6E4CD2B5D9B5A00983A9E /* YoutubePlayer-in-WKWebView in Frameworks */ = {isa = PBXBuildFile; productRef = 93B6E4CC2B5D9B5A00983A9E /* YoutubePlayer-in-WKWebView */; };
 		93B9A63E2B724D6900F736EE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B9A63C2B724D6900F736EE /* CollectionViewCell.swift */; };
 		93B9A63F2B724D6900F736EE /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B9A63D2B724D6900F736EE /* CollectionViewCell.xib */; };
+		93CF01DC2B9D93180028EAC2 /* AuthManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF01DB2B9D93180028EAC2 /* AuthManger.swift */; };
+		93CF01DE2B9DA0CD0028EAC2 /* SMSCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF01DD2B9DA0CD0028EAC2 /* SMSCodeVC.swift */; };
 		93E5F7442B7406E600603E4E /* CastOfMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E5F7432B7406E600603E4E /* CastOfMovies.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,7 @@
 		9306CC522B392DDF00B5D593 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		933C0A7E2B429E9C007178DF /* ListDataApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataApi.swift; sourceTree = "<group>"; };
 		934969802B6F61D700C9FBDF /* TypesOfMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesOfMovies.swift; sourceTree = "<group>"; };
+		934FF67F2B9B88330036A3E5 /* PhoneNumberVerfication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberVerfication.swift; sourceTree = "<group>"; };
 		935E816C2B5889070007F6BB /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		9366D0F12B3518C900D0C4E3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		9366D0F22B3518CA00D0C4E3 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		93B004402B62B41A00DF53ED /* ConvertAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertAPI.swift; sourceTree = "<group>"; };
 		93B9A63C2B724D6900F736EE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		93B9A63D2B724D6900F736EE /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		93CF01DB2B9D93180028EAC2 /* AuthManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManger.swift; sourceTree = "<group>"; };
+		93CF01DD2B9DA0CD0028EAC2 /* SMSCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCodeVC.swift; sourceTree = "<group>"; };
 		93E5F7432B7406E600603E4E /* CastOfMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastOfMovies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +128,8 @@
 				93AFF0782B65822D0083FDF4 /* WishList.swift */,
 				934969802B6F61D700C9FBDF /* TypesOfMovies.swift */,
 				93E5F7432B7406E600603E4E /* CastOfMovies.swift */,
+				934FF67F2B9B88330036A3E5 /* PhoneNumberVerfication.swift */,
+				93CF01DD2B9DA0CD0028EAC2 /* SMSCodeVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 				933C0A7E2B429E9C007178DF /* ListDataApi.swift */,
 				93B004402B62B41A00DF53ED /* ConvertAPI.swift */,
 				93ACEA162B657725001997A7 /* WishListAPI.swift */,
+				93CF01DB2B9D93180028EAC2 /* AuthManger.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,9 +285,11 @@
 				93ACEA172B657725001997A7 /* WishListAPI.swift in Sources */,
 				930690CF2B64170C00B774E4 /* SettingVC.swift in Sources */,
 				93A19CAA2B39AB160009A123 /* WelcomeAppVC.swift in Sources */,
+				93CF01DC2B9D93180028EAC2 /* AuthManger.swift in Sources */,
 				9306CC512B39111D00B5D593 /* SignUpVC.swift in Sources */,
 				938DC7052B34CC9500AF8A66 /* AppDelegate.swift in Sources */,
 				938DC7072B34CC9500AF8A66 /* SceneDelegate.swift in Sources */,
+				934FF6802B9B88330036A3E5 /* PhoneNumberVerfication.swift in Sources */,
 				93AFF0792B65822D0083FDF4 /* WishList.swift in Sources */,
 				93A0D8CE2B35F0F100FFF77B /* DetailsApi.swift in Sources */,
 				93B9A63E2B724D6900F736EE /* CollectionViewCell.swift in Sources */,
@@ -286,6 +297,7 @@
 				938DC71B2B34CD2000AF8A66 /* SearchList.swift in Sources */,
 				933C0A7F2B429E9C007178DF /* ListDataApi.swift in Sources */,
 				9366D0FA2B35274400D0C4E3 /* DetailsMovie.swift in Sources */,
+				93CF01DE2B9DA0CD0028EAC2 /* SMSCodeVC.swift in Sources */,
 				93E5F7442B7406E600603E4E /* CastOfMovies.swift in Sources */,
 				9306CC532B392DDF00B5D593 /* LogInVC.swift in Sources */,
 				938DC7192B34CCF800AF8A66 /* SearchListData.swift in Sources */,

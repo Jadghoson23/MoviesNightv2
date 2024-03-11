@@ -10,7 +10,8 @@ import Firebase
 import IQKeyboardManagerSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+//app-1-1065236986799-ios-5826cf0b3dfe59b1298d5a
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
